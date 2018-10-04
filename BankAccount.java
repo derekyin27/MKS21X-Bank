@@ -20,5 +20,26 @@ public class BankAccount{
     return oneID;
   }
   
+  public void setPassword(String newPass){
+    onePassword = newPass;
+  }
+  
+  public boolean deposit(double amount) {
+    if (amount > 0.0) {
+      oneBalance = oneBalance + amount;
+      return true;
+    }
+    else return false;
+  }
+  public boolean withdraw(double amount) {
+    if (amount > 0.0 && amount < oneBalance) {
+      oneBalance = oneBalance - amount;
+      return true;
+    }
+    else return false;
+  }
+}
+    
+  
   
     
