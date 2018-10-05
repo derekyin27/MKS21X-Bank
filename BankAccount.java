@@ -2,14 +2,16 @@ public class BankAccount{
   private int oneID;
   private double oneBalance;
   private String onePassword;
-  public BankAccount(int accountID, double balance, String password) {
+  private boolean authenticate(String password);
+    
+  public BankAccount(double balance, int accountID, String password) {
     oneID = accountID;
     oneBalance = balance;
     onePassword = password;
   }
   
   public String toString() {
-    return accountID + "  " + balance;
+    return oneID + "  " + oneBalance;
   }
   
   public double getBalance() {
@@ -36,8 +38,18 @@ public class BankAccount{
       oneBalance = oneBalance - amount;
       return true;
     }
-    else return false;
+    else return false;    
   }
+  public boolean transferTo(BankAccount other, double amount, String password){
+    if (other.password.equals(onePassword)){
+      if (amount > 0) {
+        if (this.withdraw(amount) < this.getBalance()) {
+          this.withdraw(amount) && other.deposit(amount)
+        }
+      }
+    }
+  }
+        
 }
     
   
